@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="I_see_you.WindowMesageUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="513.074" Height="76.325">
+    <Grid>
+        <Border IsHitTestVisible="False" Height="80" VerticalAlignment="Bottom">
+            <Grid>
+                <Border Height="78" VerticalAlignment="Bottom" Background="#9941B1E1">
+                    <Grid>
+                        <Label Name="N1_N2" HorizontalContentAlignment="Center" Content="Имя1 изменил имя на Имя2" Margin="0,19,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

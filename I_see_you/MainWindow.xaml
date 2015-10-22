@@ -1,0 +1,138 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gm="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:I_see_you" x:Class="I_see_you.MainWindow"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        MinHeight="508"
+        MinWidth="703"
+        
+        Title="I see you" Height="508" Width="703" Closed="CloseWindowISO">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <gm:GMapControl BorderBrush="Black" BorderThickness="1" x:Name="gMapControl1" Margin="0,0,218,0" OnMapZoomChanged="ZoomingMap"/>
+
+
+
+        <local:WindowMesageUser Opacity="0" x:Name="MesageName"  Margin="0,0,218,0" Height="76" Width="Auto" VerticalAlignment="Bottom" Foreground="Black"/>
+
+
+        <Label Content="Подключёные клиенты" HorizontalAlignment="Right" Margin="0,68,8,0" VerticalAlignment="Top" Width="203" FontSize="18" Height="39"/>
+
+        <Label  Opacity="0" x:Name="LablSetings" Content="Настройки" IsHitTestVisible="false" HorizontalAlignment="Right" Margin="0,-17,30,0" VerticalAlignment="Top" Width="105" FontSize="18" Height="32"/>
+
+        <ListView x:Name="ListConnections" Margin="0,107,0,0" HorizontalAlignment="Right" Width="218"/>
+        <Label x:Name="ErorMesa" Content="Сообщение об ошибке" HorizontalAlignment="Right" Margin="0,44,8,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Background="#00000000" Foreground="#FFE82929"/>
+
+        <Button Click="ShowInstal" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Right" Margin="0,0,1,0" VerticalAlignment="Top" Width="42" Height="42" MouseLeave="LeaveShow" MouseEnter="EnterShow">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/arrow-alt-left.png"/>
+            </Button.Background>
+        </Button>
+        <Slider Style="{DynamicResource FlatSlider}" Name="SliderZoom" HorizontalAlignment="Right" Margin="0,1,219,1" RenderTransformOrigin="0.5,0.5" Width="19" Orientation="Vertical"  Maximum="20" Minimum="1" Value="1" ValueChanged="SliderZoom_ValueChanged" Height="Auto">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+
+        <!--Шторка настроек меню-->
+        <!--106-->
+        <Controls:Flyout x:Name="InsFlip" Header="Настройки" Position="Right" Width="218">
+            <Grid>
+                <GroupBox Header="Сервер" Margin="0" Height="130" VerticalAlignment="Top">
+                    <Grid Margin="0,0,0,-5">
+
+                        <TextBox x:Name="IpServer" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.1.1.0" VerticalAlignment="Top" Width="107"/>
+                        <Button x:Name="ButtonRec" Content="Подключится" HorizontalAlignment="Left" Margin="109,1,0,0" VerticalAlignment="Top" Width="94" Click="ReConnect"/>
+                        <Label x:Name="StatusConnect" Content="Error" Margin="0,61,10,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FFF30000" FontWeight="Bold" FontSize="14"/>
+                        <Button Content="Отключиться" HorizontalAlignment="Left" Margin="109,31,0,0" VerticalAlignment="Top" Width="94" Click="DisconnectEvent"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Карта" Margin="0,130,0,0" VerticalAlignment="Top" Height="99">
+                    <Grid>
+
+
+
+                        <Button Content="Очистить карту " HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Click="Clear_map" Margin="2,2,0,0"/>
+                        <ComboBox x:Name="MapChenges" SelectedIndex="0" HorizontalAlignment="Left" Margin="106,2,0,0" VerticalAlignment="Top" Width="98" SelectionChanged="SelectionMapBox">
+                            <ComboBoxItem>Google</ComboBoxItem>
+                            <ComboBoxItem>Bing</ComboBoxItem>
+                            <ComboBoxItem>Yandex</ComboBoxItem>
+                            <ComboBoxItem>Wiki</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Header="Инструмент разработки" Margin="0,229,0,0" VerticalAlignment="Top" Height="139">
+                    <Grid>
+                        <Button Content="Отправить пакет (Вход)" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="191" Click="GetPacket"/>
+                        <Button Content="Отправить пакет (Выход)" HorizontalAlignment="Left" Margin="5,38,0,0" VerticalAlignment="Top" Width="191" Click="GetPacketDisconected"/>
+                        <Button Content="Отправить пакет (Сменить имя)" HorizontalAlignment="Left" Margin="5,67,0,0" VerticalAlignment="Top" Width="191" Click="GetPacketNewName"/>
+                    </Grid>
+                </GroupBox>
+
+            </Grid>
+        </Controls:Flyout>
+
+        <!--Шторка - Подробная Информация-->
+        <Controls:Flyout x:Name="PodrobInfo" Header="Подробная информация" Width="359">
+            <Grid>
+
+                <Rectangle x:Name="AvatarUser" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="Resources/no-avatar.jpg"/>
+                    </Rectangle.Fill>
+
+                </Rectangle>
+                <Label x:Name="LoginText" Content="Empty" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+                <GroupBox Header="Основная информация" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Height="156" Width="359">
+                    <Grid>
+                        <Label Content="Имя: " HorizontalAlignment="Left" Margin="8,3,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label x:Name="TextName" Content="Empty" HorizontalAlignment="Left" Margin="55,6,0,0" VerticalAlignment="Top" FontSize="15"/>
+                        
+                        <Label Content="Фамилия: " HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label x:Name="TextLname" Content="Empty " HorizontalAlignment="Left" Margin="94,46,0,0" VerticalAlignment="Top" FontSize="15"/>
+                        
+                        <Label Content="Возраст: " HorizontalAlignment="Left" Margin="208,3,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label x:Name="TextAge" Content="00" HorizontalAlignment="Left" Margin="286,6,0,0" VerticalAlignment="Top" FontSize="15"/>
+                        
+                        <Label Content="Пол: " HorizontalAlignment="Left" Margin="208,43,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label x:Name="TextSex" Content="Empty" HorizontalAlignment="Left" Margin="249,46,0,0" VerticalAlignment="Top" FontSize="15"/>
+                        
+                        <Label Content="Email: " HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label x:Name="TextEmail" Content="Empty" HorizontalAlignment="Left" Margin="63,84,0,0" VerticalAlignment="Top" FontSize="15"/>
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="Местоположение" HorizontalAlignment="Left" Margin="0,271,0,0" VerticalAlignment="Top" Height="131" Width="359">
+                    <Grid>
+
+                        <Label Content="Адресс: " HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <Label Content="Кординаты: " HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+                        <!-- Рабочие lable-->
+
+
+                        <Label  x:Name="CordText" Content="Empty" HorizontalAlignment="Left" Margin="117,49,0,0" VerticalAlignment="Top" FontSize="18"/>
+                        <TextBlock x:Name="AddresText" HorizontalAlignment="Left" Margin="87,14,0,0" TextWrapping="Wrap" Text="Empty" VerticalAlignment="Top" Height="44" Width="250"/>
+                    </Grid>
+                </GroupBox>
+
+            </Grid>
+        </Controls:Flyout>
+
+
+    </Grid>
+</Controls:MetroWindow>
+

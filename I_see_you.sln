@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I_see_you", "I_see_you\I_see_you.csproj", "{FB46BBEC-FCDB-4056-BC7B-9F63934E00C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISY_SERV", "ISY_SERV\ISY_SERV.csproj", "{C384F2B8-D17C-4E68-BF34-3954051B1314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISY.Domain", "ISY.Domain\ISY.Domain.csproj", "{DE157F7E-8334-480F-ABC9-22624ABF5F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewServerTest", "NewServerTest\NewServerTest.csproj", "{0B47702A-F545-4B91-A176-AAAFA02ADEB5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://plexa.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = I_see_you\\I_see_you.csproj
+		SccProjectName1 = I_see_you
+		SccLocalPath1 = I_see_you
+		SccProjectUniqueName2 = ISY_SERV\\ISY_SERV.csproj
+		SccProjectName2 = ISY_SERV
+		SccLocalPath2 = ISY_SERV
+		SccProjectUniqueName3 = ISY.Domain\\ISY.Domain.csproj
+		SccProjectName3 = ISY.Domain
+		SccLocalPath3 = ISY.Domain
+		SccProjectUniqueName4 = NewServerTest\\NewServerTest.csproj
+		SccProjectName4 = NewServerTest
+		SccLocalPath4 = NewServerTest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB46BBEC-FCDB-4056-BC7B-9F63934E00C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB46BBEC-FCDB-4056-BC7B-9F63934E00C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB46BBEC-FCDB-4056-BC7B-9F63934E00C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB46BBEC-FCDB-4056-BC7B-9F63934E00C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C384F2B8-D17C-4E68-BF34-3954051B1314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C384F2B8-D17C-4E68-BF34-3954051B1314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C384F2B8-D17C-4E68-BF34-3954051B1314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C384F2B8-D17C-4E68-BF34-3954051B1314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE157F7E-8334-480F-ABC9-22624ABF5F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE157F7E-8334-480F-ABC9-22624ABF5F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE157F7E-8334-480F-ABC9-22624ABF5F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE157F7E-8334-480F-ABC9-22624ABF5F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B47702A-F545-4B91-A176-AAAFA02ADEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B47702A-F545-4B91-A176-AAAFA02ADEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B47702A-F545-4B91-A176-AAAFA02ADEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B47702A-F545-4B91-A176-AAAFA02ADEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
